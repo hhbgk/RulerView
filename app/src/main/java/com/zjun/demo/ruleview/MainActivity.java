@@ -74,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
         trvTime.setOnTimeChangedListener(new TimeRuleView.OnTimeChangedListener() {
             @Override
+            public void onPrepared(float timeline) {
+
+            }
+
+            @Override
             public void onTimeChanged(int newTimeValue) {
                 tvTime.setText(TimeRuleView.formatTimeHHmmss(newTimeValue));
             }
