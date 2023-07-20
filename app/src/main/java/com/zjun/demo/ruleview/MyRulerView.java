@@ -1,13 +1,9 @@
 package com.zjun.demo.ruleview;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.os.Build;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +13,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.zjun.widget.RuleView;
 import com.zjun.widget.TimeRuleView;
 
 public class MyRulerView extends FrameLayout {
@@ -51,8 +46,6 @@ public class MyRulerView extends FrameLayout {
 
 
         TimeRuleView rulerScroller = new TimeRuleView(context, attrs);
-        int MiddleLinePosition = rulerScroller.getMiddleLinePosition();
-        Log.i("hhb", "middleLinePosition=" + MiddleLinePosition);
         addView(rulerScroller);
 
         View indicator = new View(context);
@@ -74,15 +67,6 @@ public class MyRulerView extends FrameLayout {
         addView(leftView);
 
         rulerScroller.setOnTimeChangedListener(new TimeRuleView.OnTimeChangedListener() {
-            @Override
-            public void onPrepared(float timeline) {
-                int position = rulerScroller.getMiddleLinePosition();
-                Log.w("hhb", "position=" + position + ", getWidth=" + leftView.getWidth() + ", h="+leftView.getMeasuredWidth());
-                indicator.setX(position);
-                leftView.setX(position - (leftView.getMeasuredWidth()/2));
-
-            }
-
             @Override
             public void onTimeChanged(int newTimeValue) {
                 leftTimeView.setText(TimeRuleView.formatTimeHHmmss(newTimeValue));
