@@ -8,13 +8,10 @@ plugins {
 //apply plugin: 'com.jfrog.bintray'
 
 android {
-    compileSdkVersion 33
-
-
-
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 33
+        compileSdkVersion 33
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
